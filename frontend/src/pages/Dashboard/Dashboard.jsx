@@ -1,3 +1,9 @@
+import { Gallery } from "../../components/Galley/Gallery";
+
 export const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <div id="dashboard-container">
+      <Gallery />
+    </div>
+  );
 };

@@ -1,0 +1,7 @@
+.card-artist {
+  width: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(113, 134, 0, 0.5);
+  padding: 20px;
+}
