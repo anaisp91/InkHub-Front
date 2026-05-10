@@ -1,4 +1,4 @@
-import { Gallery } from "../../components/Galley/Gallery";
+import { Gallery } from "../../components";
 
 export const Dashboard = () => {
   return (

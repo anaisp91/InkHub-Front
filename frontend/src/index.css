@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -121,4 +125,14 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Inter", sans-serif;
 }
