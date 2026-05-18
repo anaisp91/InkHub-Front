@@ -2,4 +2,5 @@
   background-color: rgba(250, 197, 157, 0.5);
   width: 100vw;
   min-height: 5vw;
+  border-top: 1px solid black;
 }
