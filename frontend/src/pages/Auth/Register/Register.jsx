@@ -44,11 +44,13 @@ export const Register = () => {
 
     try {
       const payload = {
-        name: form.name.trim(),
         email: form.email.trim().toLocaleLowerCase(),
         password: form.password,
-        address: form.address.trim(),
-        phoneNum: form.phone.trim(),
+        studioData: {
+          name: form.name.trim(),
+          address: form.address.trim(),
+          phoneNum: form.phoneNum.trim(),
+        },
       };
 
       const data = await AuthService.register(payload);
@@ -65,14 +67,17 @@ export const Register = () => {
   return (
     <div className="register-page">
       <section className="register-container">
-        <h3 class="register-title">REGISTER</h3>
-        <form className="register-form">
+        <h3 className="register-title">REGISTER</h3>
+        <form className="register-form" onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
               type="text"
               id="name"
               name="name"
+              value={form.name}
+              onChange={onChange}
+              autoComplete="name"
               placeholder="InkHub Studio..."
               required
             />
@@ -83,6 +88,9 @@ export const Register = () => {
               type="text"
               id="address"
               name="address"
+              value={form.address}
+              onChange={onChange}
+              autoComplete="address"
               placeholder="Street..."
               required
             />
@@ -93,6 +101,9 @@ export const Register = () => {
               type="tel"
               id="phoneNum"
               name="phoneNum"
+              value={form.phoneNum}
+              onChange={onChange}
+              inputMode="numeric"
               placeholder="+34..."
               required
             />
@@ -103,6 +114,9 @@ export const Register = () => {
               type="email"
               id="email"
               name="email"
+              value={form.email}
+              onChange={onChange}
+              autoComplete="email"
               placeholder="email@register.com"
               required
             />
@@ -113,12 +127,27 @@ export const Register = () => {
               type="password"
               id="password"
               name="password"
+              value={form.password}
+              onChange={onChange}
+              autoComplete="new-password"
               placeholder="Tu contraseña..."
               required
             />
           </div>
+          {error && (
+            <div role="alert" style={{ color: "red" }}>
+              {error}
+            </div>
+          )}
+          {ok && (
+            <div role="status" style={{ color: "green" }}>
+              {ok}
+            </div>
+          )}
+          <button className="button-submit" disabled={loading}>
+            {loading ? "Creando usuario..." : "Registrarme"}
+          </button>
         </form>
-        <button className="button-submit">Send</button>
       </section>
     </div>
   );

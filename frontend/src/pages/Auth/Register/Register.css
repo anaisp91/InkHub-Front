@@ -27,7 +27,8 @@
 }
 
 .button-submit {
-  padding: 8px 20px;
+  width: 100%;
+  padding: 8px;
   background-color: beige;
   border-radius: 10px;
   border: 1px solid black;
