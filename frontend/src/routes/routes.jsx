@@ -1,11 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Login } from "../pages/Auth/Login";
-import { Register } from "../pages/Auth/Register/Register";
-import { Dashboard } from "../pages/Dashboard/Dashboard";
-import { NotFound } from "../pages/Not Found/NotFound";
+import { createBrowserRouter, redirect } from "react-router-dom";
+import { Login, Register, Dashboard, NotFound, Home } from "../pages";
 import App from "../App";
-import { PrivateRoute } from "./privateRoutes";
-import { Home } from "../pages";
+import { authStore } from "../utils/authStore";
+
+const requireAuth = () => {
+  if (!authStore.get()) throw redirect("/login");
+  return null;
+};
 
 export const router = createBrowserRouter([
   {
@@ -25,13 +26,9 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        element: <PrivateRoute />,
-        children: [
-          {
-            path: "dashboard",
-            element: <Dashboard />,
-          },
-        ],
+        path: "profile",
+        element: <Dashboard />,
+        loader: requireAuth,
       },
       {
         path: "*",
