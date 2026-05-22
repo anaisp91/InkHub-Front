@@ -1,4 +1,4 @@
-export const Storage = {
+export const storage = {
   get(key) {
     try {
       const getStorage = localStorage.getItem(key);

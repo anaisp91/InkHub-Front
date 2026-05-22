@@ -4,12 +4,18 @@ import { Register } from "../pages/Auth/Register/Register";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { NotFound } from "../pages/Not Found/NotFound";
 import App from "../App";
+import { PrivateRoute } from "./privateRoutes";
+import { Home } from "../pages";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        index: true,
+        element: <Home />,
+      },
       {
         path: "login",
         element: <Login />,
@@ -19,8 +25,13 @@ export const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        index: true,
-        element: <Dashboard />,
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+          },
+        ],
       },
       {
         path: "*",

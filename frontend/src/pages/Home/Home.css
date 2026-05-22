@@ -1,0 +1,40 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+
+  text-align: center;
+  padding: 2rem;
+}
+
+.inkhub-logo {
+  margin: 3rem;
+}
+
+.inkhub-logo img {
+  width: 180px;
+  height: auto;
+}
+
+.inkhub-description {
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+.inkhub-description p {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .inkhub-description {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inkhub-description {
+    max-width: 700px;
+  }
+}
