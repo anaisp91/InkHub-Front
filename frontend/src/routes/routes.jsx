@@ -1,10 +1,15 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import { Login, Register, Dashboard, NotFound, Home } from "../pages";
 import App from "../App";
-import { authStore } from "../utils/authStore";
 
 const requireAuth = () => {
-  if (!authStore.get()) throw redirect("/login");
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
+
+  if (!token || !user) {
+    throw redirect("/login");
+  }
+
   return null;
 };
 

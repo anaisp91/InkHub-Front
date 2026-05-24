@@ -7,14 +7,17 @@ export const Home = () => {
         <img />
       </div>
       <div className="inkhub-description">
-        <h1>InkHub</h1>
+        <h1 className="home-title">InkHub</h1>
         <p>
-          <strong>Gestiona tu estudio de forma digita</strong>
+          <strong>Gestiona tu estudio de forma digital</strong>
         </p>
         <p>
           Centraliza artistas, clientes y consentimientos en una sola
-          plataforma. Olvídate del papel y administra tu estudio de manera más
-          rápìda, segura y profesional
+          plataforma.
+        </p>
+        <p>
+          Olvídate del papel y administra tu estudio de manera más rápìda,
+          segura y profesional.
         </p>
       </div>
     </div>

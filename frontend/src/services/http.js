@@ -30,7 +30,7 @@ export const http = async (path, { method = "GET", body, token, headers }) => {
   if (!res.ok) {
     console.log("STATUS:", res.status);
     console.log("DATA ERROR:", data);
-    throw new Error(data?.message || JSON.stringify(data));
+    throw new Error(data?.error || data?.message || JSON.stringify(data));
   }
   return data;
 };
