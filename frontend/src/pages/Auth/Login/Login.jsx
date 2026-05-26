@@ -114,38 +114,25 @@ export const Login = () => {
     setLoading(true);
 
     try {
-      console.log("antes del login");
-
       const payload = {
         email: form.email.trim().toLowerCase(),
         password: form.password,
       };
 
-      console.log("PAYLOAD:", payload);
-
       const data = await AuthService.login(payload);
 
-      console.log("despues del login:", data);
-
       const { token, user } = data;
-
-      console.log("TOKEN", token);
-      console.log("USER", user);
 
       if (!token) {
         throw new Error("El backend no devuelve token");
       }
 
-      // 🔥 AUTH STORE (ajustar según tu implementación)
-      authStore.setToken?.(token) || authStore.set?.(token);
+      authStore.set?.(token);
 
-      // 🔥 LOCAL STORAGE (CORRECTO Y FORZADO)
+      //localStorage forzado
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      console.log("LOCALSTORAGE USER NUEVO:", localStorage.getItem("user"));
-
-      console.log("Navigating to profile");
       navigate("/profile", { replace: true });
     } catch (err) {
       console.error(err);
