@@ -22,9 +22,11 @@ export const Dashboard = () => {
   }, [token]);
   return (
     <div id="dashboard-container">
-      {error && <p>{error}</p>}
-      {user && <p>{user.email}</p>}
       <Gallery />
+      <div>
+        {error && <p>{error}</p>}
+        {user && <p>{user.email}</p>}
+      </div>
     </div>
   );
 };
