@@ -1,17 +1,7 @@
-import { createBrowserRouter, redirect } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { Login, Register, Dashboard, NotFound, Home } from "../pages";
+import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
-
-const requireAuth = () => {
-  const token = localStorage.getItem("token");
-  const user = localStorage.getItem("user");
-
-  if (!token || !user) {
-    throw redirect("/login");
-  }
-
-  return null;
-};
 
 export const router = createBrowserRouter([
   {
@@ -32,8 +22,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <Dashboard />,
-        loader: requireAuth,
+        element: (
+          <ProtectedRoutes>
+            <Dashboard />,
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "*",
