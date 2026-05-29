@@ -2,13 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/routes";
-import { AuthProivider } from "./contexts/authContext";
+import { AuthProvider } from "./contexts/AuthProvider";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProivider>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </AuthProivider>
+    </AuthProvider>
   </StrictMode>,
 );

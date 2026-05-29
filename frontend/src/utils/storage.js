@@ -9,7 +9,7 @@ export const storage = {
   },
   set(key, value) {
     try {
-      localStorage.set(key, JSON.stringify(value));
+      localStorage.setItem(key, JSON.stringify(value));
       // eslint-disable-next-line no-empty
     } catch {}
   },

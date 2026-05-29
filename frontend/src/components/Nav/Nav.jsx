@@ -1,15 +1,16 @@
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
-import { hasToken, logOut } from "../../layouts/authLayout";
+import { useAuth } from "../../contexts/useAuth";
 
 export const Nav = () => {
+  const { logOut, token } = useAuth();
   return (
     <div>
       <nav className="nav">
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/register"}>Register</NavLink>
 
-        {!hasToken() ? (
+        {!token ? (
           <NavLink to={"/login"}>Login</NavLink>
         ) : (
           <>

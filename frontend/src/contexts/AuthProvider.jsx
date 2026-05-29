@@ -1,9 +1,7 @@
-import { createContext, useEffect, useState, useCallback } from "react";
-
-import { authService } from "../services/authService";
+import { useEffect, useState, useCallback } from "react";
+import { AuthService } from "../services/authService";
 import { storage } from "../utils/storage";
-
-const AuthContext = createContext(null);
+import { AuthContext } from "./authContext";
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => storage.get("token"));
@@ -17,8 +15,10 @@ export const AuthProvider = ({ children }) => {
     storage.set("user", user);
   }, [user]);
 
+  console.log(storage);
+
   const login = useCallback(async (email, password) => {
-    const data = await authService.login({ email, password });
+    const data = await AuthService.login({ email, password });
     const tokenLogin = data.token ?? data?.data?.token;
     const userLogin = data.user ?? data?.data?.user ?? data?.data;
 
@@ -40,14 +40,14 @@ export const AuthProvider = ({ children }) => {
 
   const profile = useCallback(async () => {
     if (!token) return null;
-    const profileData = await authService.profile(token);
+    const profileData = await AuthService.profile(token);
     setUser(profileData);
     return profileData;
   }, [token]);
 
   return (
-    <AuthContext.AuthProivider value={{ token, user, login, logOut, profile }}>
+    <AuthContext.Provider value={{ token, user, login, logOut, profile }}>
       {children}
-    </AuthContext.AuthProivider>
+    </AuthContext.Provider>
   );
 };
