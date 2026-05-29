@@ -40,9 +40,9 @@ export const AuthProvider = ({ children }) => {
 
   const profile = useCallback(async () => {
     if (!token) return null;
-    const profile = await authService.profile(token);
-    setUser(profile);
-    return profile;
+    const profileData = await authService.profile(token);
+    setUser(profileData);
+    return profileData;
   }, [token]);
 
   return (

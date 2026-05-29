@@ -1,25 +1,19 @@
 import { useEffect, useState } from "react";
 import { Gallery } from "../../components";
-import { AuthService } from "../../services/authService";
+import { useAuth } from "../../contexts/useAuth";
 
 export const Dashboard = () => {
-  const token = localStorage.getItem("token");
-  const [user, setUser] = useState(null);
+  const { profile, token, user } = useAuth();
   const [error, setError] = useState(
     !token ? "No hay token de autenticación" : null,
   );
 
   useEffect(() => {
     if (!token) return;
-
-    AuthService.profile(token)
-      .then((data) => {
-        setUser(data);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
-  }, [token]);
+    profile().catch((err) => {
+      setError(err.message);
+    });
+  }, [token, profile]);
   return (
     <div id="dashboard-container">
       <Gallery />
