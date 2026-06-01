@@ -1,12 +1,9 @@
-import "./App.css";
 import { Outlet } from "react-router-dom";
 
-const App = () => {
+export const DashboardLayout = () => {
   return (
     <>
       <Outlet />
     </>
   );
 };
-
-export default App;

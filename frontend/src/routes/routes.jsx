@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Login, Register, Dashboard, NotFound, Home } from "../pages";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
+import { DashboardLayout, PublicLayout } from "../layouts";
 
 export const router = createBrowserRouter([
   {
@@ -9,28 +10,38 @@ export const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        index: true,
-        element: <Home />,
+        element: <PublicLayout />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "register",
+            element: <Register />,
+          },
+          {
+            path: "*",
+            element: <NotFound />,
+          },
+        ],
       },
       {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-      {
-        path: "profile",
         element: (
           <ProtectedRoutes>
-            <Dashboard />,
+            <DashboardLayout />
           </ProtectedRoutes>
         ),
-      },
-      {
-        path: "*",
-        element: <NotFound />,
+        children: [
+          {
+            path: "profile",
+            element: <Dashboard />,
+          },
+        ],
       },
     ],
   },
