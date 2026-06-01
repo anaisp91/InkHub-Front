@@ -7,7 +7,7 @@ export const Nav = () => {
   return (
     <div>
       <nav className="nav">
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink to={"/"}>InkHub</NavLink>
         <NavLink to={"/register"}>Register</NavLink>
 
         {!token ? (
