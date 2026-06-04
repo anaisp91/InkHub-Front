@@ -1,24 +1,22 @@
-import "./Home.css";
 export const Home = () => {
   return (
-    <div className="home-container">
-      <div className="inkhub-logo">
-        <p>LOGO</p>
-        <img />
-      </div>
-      <div className="inkhub-description">
-        <h1 className="home-title">InkHub</h1>
-        <p>
-          <strong>Gestiona tu estudio de forma digital</strong>
-        </p>
-        <p>
-          Centraliza artistas, clientes y consentimientos en una sola
-          plataforma.
-        </p>
-        <p>
-          Olvídate del papel y administra tu estudio de manera más rápìda,
-          segura y profesional.
-        </p>
+    <div className="min-h-screen min-w-full flex-col items-center justify-start text-center p-28 bg-slate-100">
+      <div>
+        <img
+          alt="InkHub Logo"
+          src="/images/logos/Inkhub.png"
+          className="mx-auto h-auto w-[18rem] m-4"
+        />
+        <div className="bg-slate-300 mt-9 p-7 ">
+          <p className="font-bold font-sans text-[1.5rem] leading-6">
+            Gestiona tu estudio de forma digital
+          </p>
+          <p className="font-sans text-sm mt-9 ">
+            Centraliza artistas, clientes y consentimientos en una sola
+            plataforma. Olvídate del papel y administra tu estudio de manera más
+            rápìda, segura y profesional.
+          </p>
+        </div>
       </div>
     </div>
   );

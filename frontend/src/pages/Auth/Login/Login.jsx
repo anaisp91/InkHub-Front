@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../contexts/useAuth";
 
 export const Login = () => {
@@ -34,95 +34,90 @@ export const Login = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center w-full min-h-full bg-gray-50">
-      <form className="max-w-sm mx-auto" onSubmit={onSubmit}>
-        <div className="mb-5">
-          <label
-            htmlFor="email"
-            className="block mb-2.5 text-sm font-medium text-heading"
-          >
-            Your email
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="w-full rounded-lg border px-3 py- shadow-sm"
-            placeholder="Enter Email"
-            name="email"
-            onChange={onChange}
-            value={form.email}
-            required
-          />
-        </div>
-        <div className="mb-5">
-          <label
-            htmlFor="password"
-            className="block mb-2.5 text-sm font-medium text-heading"
-          >
-            Your password
-          </label>
-          <input
-            type="password"
-            id="password"
-            className="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-            placeholder="Enter Password"
-            name="password"
-            onChange={onChange}
-            value={form.password}
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="text-black bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
-          disabled={loading}
-        >
-          Login
-        </button>
-      </form>
-    </div>
+    <div className="flex flex-1 flex-col items-center justify-start px-6 py-12 lg:px-8  bg-slate-100 min-h-screen">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img
+          alt="InkHub"
+          src="/images/logos/Inkhub.png"
+          className="mx-auto h-[5rem] w-auto"
+        />
+        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+          Sign in to your account
+        </h2>
+      </div>
 
-    // <section className="login-container">
-    //   <h2 className="login-title">LOGIN</h2>
-    //   <form onSubmit={onSubmit} className="login-form">
-    //     <div className="form-group">
-    //       <label htmlFor="email">Email</label>
-    //       <input
-    //         type="email"
-    //         id="email"
-    //         name="email"
-    //         value={form.email}
-    //         onChange={onChange}
-    //         placeholder="enter Email"
-    //         required
-    //       />
-    //     </div>
-    //     <div className="form-group">
-    //       <label htmlFor="password">Password</label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         name="password"
-    //         value={form.password}
-    //         onChange={onChange}
-    //         placeholder="enter Password"
-    //         required
-    //       />
-    //     </div>
-    //     {error && (
-    //       <div role="alert" style={{ color: "red" }}>
-    //         {error}
-    //       </div>
-    //     )}
-    //     {ok && (
-    //       <div role="status" style={{ color: "green" }}>
-    //         {ok}
-    //       </div>
-    //     )}
-    //     <button className="button-submit" disabled={loading}>
-    //       {loading ? "Buscando estudio..." : "Login"}
-    //     </button>
-    //   </form>
-    // </section>
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-slate-300 p-10">
+        <form
+          action="#"
+          method="POST"
+          className="space-y-6"
+          onSubmit={onSubmit}
+        >
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm/6 font-medium text-gray-900"
+            >
+              Email address
+            </label>
+            <div className="mt-2">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={onChange}
+                required
+                autoComplete="email"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="password"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
+                Password
+              </label>
+            </div>
+            <div className="mt-2">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                value={form.password}
+                onChange={onChange}
+                required
+                autoComplete="current-password"
+                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              {loading ? "Signing in..." : "Sign in"}
+            </button>
+          </div>
+        </form>
+
+        <p className="mt-10 text-center text-sm/6 text-gray-500">
+          Not a member?{" "}
+          <Link
+            to="/register"
+            className="font-semibold text-indigo-600 hover:text-indigo-500"
+          >
+            SignUp
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 };

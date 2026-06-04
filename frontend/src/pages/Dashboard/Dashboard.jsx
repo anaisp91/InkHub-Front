@@ -15,7 +15,7 @@ export const Dashboard = () => {
     });
   }, [token, profile]);
   return (
-    <div id="dashboard-container">
+    <div>
       <Gallery />
       <div>
         {error && <p>{error}</p>}
