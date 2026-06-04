@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Login, Register, Dashboard, NotFound, Home } from "../pages";
+import { Crew } from "../pages/Dashboard/Crew";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
 import { DashboardLayout, PublicLayout } from "../layouts";
@@ -40,6 +41,12 @@ export const router = createBrowserRouter([
           {
             path: "profile",
             element: <Dashboard />,
+            children: [
+              {
+                index: true,
+                element: <Crew />,
+              },
+            ],
           },
         ],
       },

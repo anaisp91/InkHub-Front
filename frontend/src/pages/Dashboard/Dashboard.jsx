@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Gallery } from "../../components";
 import { useAuth } from "../../contexts/useAuth";
+import { ProfileNav } from "./ProfileNav";
+import { Outlet } from "react-router-dom";
 
 export const Dashboard = () => {
   const { profile, token, user } = useAuth();
@@ -15,12 +16,13 @@ export const Dashboard = () => {
     });
   }, [token, profile]);
   return (
-    <div>
-      <Gallery />
-      <div>
+    <div className="bg-slate-100">
+      <ProfileNav />
+      <main className="min-h-screen">
         {error && <p>{error}</p>}
         {user && <p>{user.email}</p>}
-      </div>
+        <Outlet />
+      </main>
     </div>
   );
 };
