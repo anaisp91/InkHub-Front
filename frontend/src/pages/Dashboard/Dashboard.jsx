@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/useAuth";
-import { ProfileNav } from "./ProfileNav";
+import { ProfileNav } from "../../components";
 import { Outlet } from "react-router-dom";
 
 export const Dashboard = () => {
