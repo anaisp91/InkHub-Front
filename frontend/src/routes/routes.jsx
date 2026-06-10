@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Login, Register, Dashboard, NotFound, Home } from "../pages";
-import { Crew } from "../pages/Dashboard/Crew";
+import { Crew, NewArtist } from "../pages/Dashboard";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
 import { DashboardLayout, PublicLayout } from "../layouts";
@@ -45,6 +45,10 @@ export const router = createBrowserRouter([
               {
                 index: true,
                 element: <Crew />,
+              },
+              {
+                path: "newArtist",
+                element: <NewArtist />,
               },
             ],
           },

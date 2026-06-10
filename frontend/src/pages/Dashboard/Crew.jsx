@@ -2,10 +2,11 @@ import { useAuth } from "../../contexts/useAuth";
 import { Gallery } from "../../components";
 import { useEffect, useState } from "react";
 import { StudioService } from "../../services/StudioService";
+import { Link } from "react-router-dom";
 
 export const Crew = () => {
   const { user, token } = useAuth();
-  const [artist, setArtists] = useState([]);
+  const [artists, setArtists] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -28,7 +29,16 @@ export const Crew = () => {
   }, [user?.studioId, token]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
+      <div className="flex flex-row-reverse m-10 ">
+        <Link
+          to="newArtist"
+          className="btn bg-slate-400 text-black  font-semibold p-2 rounded-md btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"
+        >
+          + New Artist
+        </Link>
+      </div>
+
       <Gallery />
     </div>
   );

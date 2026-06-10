@@ -9,7 +9,7 @@ export const Home = () => {
         />
         <div className="bg-slate-300 mt-9 p-7 ">
           <p className="font-bold font-sans text-[1.5rem] leading-6">
-            Gestiona tu estudio de forma digital
+            GESTIONA TU ESTUDIO DE FORMA DIGITAL
           </p>
           <p className="font-sans text-sm mt-9 ">
             Centraliza artistas, clientes y consentimientos en una sola
