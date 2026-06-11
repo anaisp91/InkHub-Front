@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { Login, Register, Dashboard, NotFound, Home } from "../pages";
 import { Crew, NewArtist } from "../pages/Dashboard";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
@@ -44,11 +44,20 @@ export const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <Crew />,
+                element: <Navigate to="crew" replace />,
               },
               {
-                path: "newArtist",
-                element: <NewArtist />,
+                path: "crew",
+                children: [
+                  {
+                    index: true,
+                    element: <Crew />,
+                  },
+                  {
+                    path: "new",
+                    element: <NewArtist />,
+                  },
+                ],
               },
             ],
           },
