@@ -1,10 +1,11 @@
 import { http } from "./http";
 
 export const ArtistService = {
-  registerArtist: (payload) =>
+  registerArtist: (payload, token) =>
     http("/api/auth/register/artist", {
       method: "POST",
       body: payload,
+      token,
     }),
   getArtistById: (id, token) =>
     http(`/api/artists/${id}`, {

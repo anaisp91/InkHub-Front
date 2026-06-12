@@ -1,6 +1,6 @@
 import { Card } from "../Card/Card";
 import { infoArtists } from "../../data/infoArtists";
-export const Gallery = () => {
+export const Gallery = ({ artists }) => {
   const dataArtists = infoArtists;
   return (
     <div>
@@ -9,6 +9,7 @@ export const Gallery = () => {
         {dataArtists.map((artists) => (
           <Card src={artists.srcImg} name={artists.slug} alt={artists.altImg} />
         ))}
+        {artists}
       </section>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { ArtistService } from "../../services/ArtistService";
 import { useState } from "react";
+import { useAuth } from "../../contexts/useAuth";
 
 export const NewArtist = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ export const NewArtist = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [ok, setOk] = useState(null);
+  const { token } = useAuth();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -62,7 +64,7 @@ export const NewArtist = () => {
         },
       };
 
-      const data = await ArtistService.registerArtist(payload);
+      const data = await ArtistService.registerArtist(payload, token);
 
       setOk("Registro completado");
       setForm({
@@ -126,7 +128,7 @@ export const NewArtist = () => {
                 id="lastName"
                 name="lastName"
                 value={form.lastName}
-                className="bg-slate-300  rounded-md text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                 required
               />
             </div>
@@ -144,7 +146,7 @@ export const NewArtist = () => {
                 id="persId"
                 name="persId"
                 value={form.persId}
-                className="bg-slate-300  rounded-md text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                 required
               />
             </div>
@@ -162,7 +164,7 @@ export const NewArtist = () => {
                 id="phoneNum"
                 name="phoneNum"
                 value={form.phoneNum}
-                className="bg-slate-300  rounded-md text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                 required
               />
             </div>
@@ -180,7 +182,7 @@ export const NewArtist = () => {
                 id="SanNum"
                 name="SanNum"
                 value={form.SanNum}
-                className="bg-slate-300  rounded-md text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
                 required
               />
             </div>
@@ -193,11 +195,12 @@ export const NewArtist = () => {
               Email address
             </label>
             <input
+              onChange={onChange}
               type="email"
               id="email"
               name="email"
               value={form.email}
-              className="bg-slate-300  rounded-md text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+              className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
               required
             />
           </div>
@@ -209,20 +212,22 @@ export const NewArtist = () => {
               Password
             </label>
             <input
+              onChange={onChange}
               type="password"
               id="password"
               name="password"
               value={form.password}
-              className="bg-slate-300  rounded-md text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+              className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
               required
             />
           </div>
 
           <button
             type="submit"
+            disabled={loading}
             className="text-slate-900 bg-slate-400 box-border rounded-md border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-6 py-2.5 focus:outline-none "
           >
-            Submit
+            {loading ? "Adding Artist..." : "Add Artist"}
           </button>
         </form>
       </div>
