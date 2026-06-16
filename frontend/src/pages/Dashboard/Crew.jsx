@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
 
 export const Crew = () => {
-  const { user, token } = useAuth();
+  const { token, studio } = useAuth();
   const {
     data: artists,
     isLoading,
     hasError,
   } = useFetch(() => {
-    if (!user?.studioId || !token) return null;
-    return StudioService.getStudioArtists(user.studioId, token);
-  }, [user?.studioId, token]);
+    if (!studio.id || !token) return null;
+    return StudioService.getStudioArtists(studio.id, token);
+  }, [studio.id, token]);
 
   if (isLoading) return <p>Cargando Artistas</p>;
   if (hasError) return <p>{hasError}</p>;

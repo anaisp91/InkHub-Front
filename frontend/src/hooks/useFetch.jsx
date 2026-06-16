@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
@@ -10,17 +9,16 @@ export const useFetch = (url) => {
 
   useEffect(() => {
     const getFetch = async () => {
-      setState({ ...state, isLoading: true });
+      setState({ data: null, isLoading: true, hasError: null });
       try {
         const res = await fetch(url);
         if (!res.ok) {
           throw new Error(`Ha habido un error ${res.status} ${res}`);
-        } else {
-          const dataJson = await res.json();
-          setState({ ...state, data: dataJson, isLoading: false });
         }
+        const dataJson = await res.json();
+        setState({ data: dataJson, isLoading: false, hasError: null });
       } catch (err) {
-        setState({ ...state, isLoading: false, hasError: err });
+        setState({ data: null, isLoading: false, hasError: err.message });
       }
     };
 
@@ -31,6 +29,5 @@ export const useFetch = (url) => {
     data: state.data,
     isLoading: state.isLoading,
     hasError: state.hasError,
-    state,
   };
 };
