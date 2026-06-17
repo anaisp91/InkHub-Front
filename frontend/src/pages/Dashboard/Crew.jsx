@@ -2,21 +2,37 @@ import { useAuth } from "../../contexts/useAuth";
 import { Gallery } from "../../components";
 import { StudioService } from "../../services/StudioService";
 import { Link } from "react-router-dom";
-import { useFetch } from "../../hooks/useFetch";
+import { useEffect, useState } from "react";
 
 export const Crew = () => {
   const { token, studio } = useAuth();
-  const {
-    data: artists,
-    isLoading,
-    hasError,
-  } = useFetch(() => {
-    if (!studio.id || !token) return null;
-    return StudioService.getStudioArtists(studio.id, token);
-  }, [studio.id, token]);
+  const [artists, setArtists] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  if (isLoading) return <p>Cargando Artistas</p>;
-  if (hasError) return <p>{hasError}</p>;
+  useEffect(() => {
+    if (!studio?.id || !token) return;
+    const fetchArtists = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const data = await StudioService.getStudioArtists(studio.id, token);
+
+        console.log(data);
+
+        setArtists(data);
+      } catch (err) {
+        setError(err?.message || "Error al cragar artistas");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArtists();
+  }, [studio?.id, token]);
+
+  if (loading) return <p>Cargando Artistas</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="min-h-screen ">
