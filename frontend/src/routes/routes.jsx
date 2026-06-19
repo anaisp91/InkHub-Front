@@ -4,6 +4,7 @@ import { Crew, NewArtist } from "../pages/Dashboard";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
 import { DashboardLayout, PublicLayout } from "../layouts";
+import { ArtistProfile } from "../pages";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
                   {
                     path: "new",
                     element: <NewArtist />,
+                  },
+                  {
+                    path: ":artistId",
+                    element: <ArtistProfile />,
                   },
                 ],
               },

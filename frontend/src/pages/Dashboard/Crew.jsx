@@ -10,16 +10,21 @@ export const Crew = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // console.log("AUTH USER", user);
+  // console.log("AUTH STUDIO", studio);
+  // console.log("AUTH TOKEN", token);
   useEffect(() => {
-    if (!studio?.id || !token) return;
+    if (!studio?._id || !token) return;
     const fetchArtists = async () => {
       try {
         setLoading(true);
         setError(null);
 
-        const data = await StudioService.getStudioArtists(studio.id, token);
+        console.log("STUDIO ID", studio?._id);
 
-        console.log(data);
+        const data = await StudioService.getStudioArtists(studio._id, token);
+
+        console.log("ARTISTS RESPONSE", data);
 
         setArtists(data);
       } catch (err) {
@@ -29,7 +34,7 @@ export const Crew = () => {
       }
     };
     fetchArtists();
-  }, [studio?.id, token]);
+  }, [studio?._id, token]);
 
   if (loading) return <p>Cargando Artistas</p>;
   if (error) return <p>{error}</p>;

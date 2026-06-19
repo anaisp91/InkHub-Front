@@ -27,15 +27,15 @@ export const AuthProvider = ({ children }) => {
 
   const login = useCallback(async (email, password) => {
     const data = await AuthService.login({ email, password });
-    console.log("login Response", data);
+    // console.log("login Response", data);
     const tokenLogin = data.token;
     const userLogin = data.user;
 
     if (!tokenLogin)
       throw new Error("El servidor de backend no ha devuelto token");
 
-    console.log("tokenLogin:", tokenLogin);
-    console.log("userLogin:", userLogin);
+    // console.log("tokenLogin:", tokenLogin);
+    // console.log("userLogin:", userLogin);
 
     setToken(tokenLogin);
     setUser(userLogin ?? null);
@@ -45,9 +45,9 @@ export const AuthProvider = ({ children }) => {
 
   const fetchStudio = useCallback(
     async (studioId) => {
-      console.log("fetchinng Called");
-      console.log("studioId", studioId);
-      console.log("token", token);
+      // console.log("fetchinng Called");
+      // console.log("studioId", studioId);
+      // console.log("token", token);
       if (!studioId || !token) return;
 
       const studioData = await StudioService.getStudioById(studioId, token);
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
         throw new Error("El servidor no ha encontardo el Studio");
       }
 
-      console.log("studioData response:", studioData);
+      // console.log("studioData response:", studioData);
       setStudio(studioData);
     },
     [token],
@@ -63,13 +63,13 @@ export const AuthProvider = ({ children }) => {
 
   const studioId = user?.studio?.id;
 
-  console.log("USER IN STATE", user);
-  console.log("USER:STUDIO", user?.studio);
+  // console.log("USER IN STATE", user);
+  // console.log("USER:STUDIO", user?.studio);
 
   useEffect(() => {
-    console.log("useEffect trigger:");
-    console.log("studioID", studioId);
-    console.log("token", token);
+    // console.log("useEffect trigger:");
+    // console.log("studioID", studioId);
+    // console.log("token", token);
 
     if (!studioId || !token) return;
     fetchStudio(studioId);
