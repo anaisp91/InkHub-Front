@@ -4,3 +4,6 @@ export * from "./Dashboard/Dashboard";
 export * from "./Not Found/NotFound";
 export * from "./Home/Home";
 export * from "./Artists/ArtistProfile";
+export * from "./Artists/EditArtist";
+export * from "./Dashboard/Crew";
+export * from "./Dashboard/NewArtist";

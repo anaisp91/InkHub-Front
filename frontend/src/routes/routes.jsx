@@ -1,10 +1,18 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import { Login, Register, Dashboard, NotFound, Home } from "../pages";
-import { Crew, NewArtist } from "../pages/Dashboard";
+import {
+  Login,
+  Register,
+  Dashboard,
+  NotFound,
+  Home,
+  ArtistProfile,
+  Crew,
+  NewArtist,
+  EditArtist,
+} from "../pages";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
 import { DashboardLayout, PublicLayout } from "../layouts";
-import { ArtistProfile } from "../pages";
 
 export const router = createBrowserRouter([
   {
@@ -14,22 +22,10 @@ export const router = createBrowserRouter([
       {
         element: <PublicLayout />,
         children: [
-          {
-            index: true,
-            element: <Home />,
-          },
-          {
-            path: "login",
-            element: <Login />,
-          },
-          {
-            path: "register",
-            element: <Register />,
-          },
-          {
-            path: "*",
-            element: <NotFound />,
-          },
+          { index: true, element: <Home /> },
+          { path: "login", element: <Login /> },
+          { path: "register", element: <Register /> },
+          { path: "*", element: <NotFound /> },
         ],
       },
       {
@@ -43,25 +39,14 @@ export const router = createBrowserRouter([
             path: "profile",
             element: <Dashboard />,
             children: [
-              {
-                index: true,
-                element: <Navigate to="crew" replace />,
-              },
+              { index: true, element: <Navigate to="crew" replace /> },
               {
                 path: "crew",
                 children: [
-                  {
-                    index: true,
-                    element: <Crew />,
-                  },
-                  {
-                    path: "new",
-                    element: <NewArtist />,
-                  },
-                  {
-                    path: ":artistId",
-                    element: <ArtistProfile />,
-                  },
+                  { index: true, element: <Crew /> },
+                  { path: "new", element: <NewArtist /> },
+                  { path: ":artistId", element: <ArtistProfile /> },
+                  { path: ":artistId/edit", element: <EditArtist /> },
                 ],
               },
             ],

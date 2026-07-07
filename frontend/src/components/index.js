@@ -8,3 +8,4 @@ export * from "./Card/Card";
 export * from "./Loading/Loading";
 export * from "./Nav/ProfileNav";
 export * from "./ButtonCustom/ButtonCustom";
+export * from "./Forms/ArtistForm";

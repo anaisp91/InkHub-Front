@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 import { useEffect, useState } from "react";
 import { ArtistService } from "../../services/ArtistService";
+import { Link } from "react-router-dom";
 
 export const ArtistProfile = () => {
   const { token } = useAuth();
@@ -65,6 +66,11 @@ export const ArtistProfile = () => {
           </h3>
           <p className="text-lg">{artist.SanNum}</p>
         </div>
+      </div>
+
+      <div>
+        <Link to={`/profile/crew/${artistId}/edit`}>Edit</Link>
+        <Link>Delete</Link>
       </div>
     </section>
   );
