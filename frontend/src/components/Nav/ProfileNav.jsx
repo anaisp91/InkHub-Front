@@ -23,7 +23,7 @@ export const ProfileNav = () => {
             <nav className="hidden md:flex items-center">
               <NavLink
                 className="text-gray-700 hover:text-indigo-700 text-sm font-medium p-4"
-                to={"/crew"}
+                to={"crew"}
               >
                 Crew
               </NavLink>
@@ -50,7 +50,7 @@ export const ProfileNav = () => {
             <nav className="flex flex-col py-2">
               <NavLink
                 className="px-4 py-3 text-gray-700 hover:text-indigo-700"
-                to="/crew"
+                to="crew"
                 onClick={() => setOpen(false)}
               >
                 Crew
