@@ -6,6 +6,7 @@ export const ArtistForm = ({
   loading,
   error,
   withPassword,
+  withEmail,
 }) => {
   return (
     <div className="min-h-screen p-5 bg-slate-900 text-slate-100">
@@ -110,23 +111,25 @@ export const ArtistForm = ({
               />
             </div>
           </div>
-          <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="block mb-2.5 text-sm font-medium text-heading"
-            >
-              Email address
-            </label>
-            <input
-              onChange={onChange}
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
-              required
-            />
-          </div>
+          {withEmail && (
+            <div className="mb-6">
+              <label
+                htmlFor="email"
+                className="block mb-2.5 text-sm font-medium text-heading"
+              >
+                Email address
+              </label>
+              <input
+                onChange={onChange}
+                type="email"
+                id="email"
+                name="email"
+                value={form.email}
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                required
+              />
+            </div>
+          )}
 
           {withPassword && (
             <div className="mb-6">

@@ -91,6 +91,7 @@ export const NewArtist = () => {
       loading={loading}
       title={"New Artist"}
       withPassword={true}
+      withEmail={true}
       error={error}
     />
   );
