@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../contexts/useAuth";
 import { useEffect, useState } from "react";
 import { ArtistService } from "../../services/ArtistService";
 import { Link } from "react-router-dom";
 
 export const ArtistProfile = () => {
+  const navigate = useNavigate();
   const { token } = useAuth();
   const { artistId } = useParams();
 
@@ -32,6 +33,25 @@ export const ArtistProfile = () => {
 
     artistProfile();
   }, [artistId, token]);
+
+  const onDelete = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    const confirmed = window.confirm(
+      "¿Estas seguro de que quieres borrar este artista?",
+    );
+    if (!confirmed) return;
+    try {
+      setLoading(true);
+      await ArtistService.deleteArtist(artistId, token);
+      navigate("/profile/crew");
+    } catch (err) {
+      setError(err.message || "Error en Delete");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="max-w-3xl mx-auto p-8">
@@ -70,7 +90,7 @@ export const ArtistProfile = () => {
 
       <div>
         <Link to={`/profile/crew/${artistId}/edit`}>Edit</Link>
-        <Link>Delete</Link>
+        <button onClick={onDelete}>Delete</button>
       </div>
     </section>
   );
