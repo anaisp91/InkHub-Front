@@ -1,12 +1,12 @@
 import { Nav } from "../Nav/Nav";
 export const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black border-b backdrop-blur-lg bg-opacity-80">
-      <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
-        <div className="relative flex h-16 justify-between">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gray-900">
+      <div className="mx-auto max-w-7xl px-6  ">
+        <div className="flex items-center justify-between py-2 border-slate-200">
           <div className="flex flex-1 items-stretch justify-start">
             <img
-              className="block  min-w-5"
+              className="h-12 w-auto"
               src="/images/logos/InkHub-logo-blanco.png"
             />
           </div>

@@ -3,15 +3,9 @@ import { NavLink } from "react-router-dom";
 export const Nav = () => {
   return (
     <div>
-      <nav className="nav">
+      <nav>
         <NavLink
-          className="text-gray-700 hover:text-indigo-700 text-sm font-medium p-6"
-          to={"/"}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          className="text-gray-700 hover:text-indigo-700 text-sm font-medium p-4"
+          className="text-white hover:text-indigo-400 text-sm font-medium p-6"
           to={"/register"}
         >
           Register
