@@ -34,19 +34,30 @@ export const Login = () => {
     }
   };
   return (
-    <div className="flex flex-1 flex-col items-center justify-start px-6 py-12 lg:px-8  bg-slate-100 min-h-screen">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className=" relative h-auto w-screen bg-[url('/images/logos/Baum24_097.jpg')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
+      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="relative z-10">
         <img
           alt="InkHub"
-          src="/images/logos/Inkhub.png"
-          className="mx-auto h-[5rem] w-auto"
+          src="/images/logos/InkHub-logo2-blanco.png"
+          className="mx-auto mt-20 w-80 
+                    md:w-[600px] md:p-6 md:pb-0 
+                    lg:w-[500px] lg:p-10 lg:mt-7 lg:pb-3"
         />
-        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Sign in to your account
-        </h2>
+        <div className="mt-[-30px]">
+          <h2
+            className=" text-center text-xl font-bold tracking-tight text-white pt-3
+                      md:text-2xl "
+          >
+            Sign In
+          </h2>
+        </div>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-slate-300 p-10">
+      <div
+        className="relative z-0 mt-10 bg-slate-300 p-10
+                    md:m-20 md:mt-10 md:p-10 "
+      >
         <form
           action="#"
           method="POST"
@@ -96,6 +107,21 @@ export const Login = () => {
               />
             </div>
           </div>
+
+          {error && (
+            <div className="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center  max-w-lg">
+              <svg
+                viewBox="0 0 24 24"
+                className="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3"
+              >
+                <path
+                  fill="currentColor"
+                  d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
+                ></path>
+              </svg>
+              <span className="text-red-800"> {error} </span>
+            </div>
+          )}
 
           <div>
             <button

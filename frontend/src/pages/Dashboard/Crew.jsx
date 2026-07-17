@@ -10,9 +10,6 @@ export const Crew = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // console.log("AUTH USER", user);
-  // console.log("AUTH STUDIO", studio);
-  // console.log("AUTH TOKEN", token);
   useEffect(() => {
     if (!studio?._id || !token) return;
     const fetchArtists = async () => {
@@ -40,7 +37,7 @@ export const Crew = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="min-h-screen ">
+    <div className="relative h-screen m-0 bg-black text-white">
       <div className="flex flex-row-reverse m-10 ">
         <Link
           to="new"
