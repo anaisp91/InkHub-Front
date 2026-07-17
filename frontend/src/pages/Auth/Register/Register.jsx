@@ -65,19 +65,31 @@ export const Register = () => {
   };
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-start px-6 py-12 lg:px-8  bg-slate-100 min-h-screen">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className=" relative h-auto w-screen bg-[url('/images/logos/Baum24_019.jpg')] bg-cover bg-center bg-no-repeat flex flex-col items-center">
+      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="relative z-10">
         <img
-          alt="InkHub"
-          src="/images/logos/Inkhub.png"
-          className="mx-auto h-[5rem] w-auto"
+          alt="InkHub Logo"
+          src="/images/logos/InkHub-logo2-blanco.png"
+          className="mx-auto mt-20 w-80 
+                    md:w-[600px] md:p-6 md:pb-0 
+                    lg:w-[500px] lg:p-10 lg:mt-7 lg:pb-3"
         />
-        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-          Create your Account
-        </h2>
+        <div className="mt-[-30px]">
+          <h2
+            className=" text-center text-xl font-bold tracking-tight text-white pt-3
+                      md:text-2xl "
+          >
+            Create your Account
+          </h2>
+        </div>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-slate-300 p-10">
+      <div
+        className="relative z-0 m-8 p-4 bg-slate-300 
+                      md:m-20 md:mt-10 md:p-10 
+                      lg:w-[600px]  "
+      >
         <form
           action="#"
           method="POST"
@@ -189,32 +201,34 @@ export const Register = () => {
           </div>
 
           {ok && (
-            <div class="bg-green-200 px-6 py-4  my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
+            <div className="bg-green-200 px-6 py-4  my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
               <svg
                 viewBox="0 0 24 24"
-                class="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3"
+                className="text-green-600 w-5 h-5 sm:w-5 sm:h-5 mr-3"
               >
                 <path
                   fill="currentColor"
                   d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z"
                 ></path>
               </svg>
-              <span class="text-green-800">Your account has been saved</span>
+              <span className="text-green-800">
+                Your account has been saved
+              </span>
             </div>
           )}
 
           {error && (
-            <div class="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center  max-w-lg">
+            <div className="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center  max-w-lg">
               <svg
                 viewBox="0 0 24 24"
-                class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3"
+                className="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3"
               >
                 <path
                   fill="currentColor"
                   d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z"
                 ></path>
               </svg>
-              <span class="text-red-800"> {error} </span>
+              <span className="text-red-800"> {error} </span>
             </div>
           )}
 

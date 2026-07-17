@@ -47,7 +47,7 @@ export const Home = () => {
           <p
             className="text-white font-normal font-sans text-center text-[1rem] mb-7 
                     md:text-[1.5rem]
-                    lg:text-[1.3rem] "
+                    lg:text-[1.3rem] lg:p-4"
           >
             InkHub nace con el objetico de simplifiacar la gestión diaria de un
             estudio de tatuajes. Desde una única plataforma el estudio puede
