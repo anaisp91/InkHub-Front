@@ -37,11 +37,12 @@ export const Crew = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="relative h-screen m-0 bg-black text-white">
-      <div className="flex flex-row-reverse m-10 ">
+    <div className="relative min-h-screen bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="flex flex-row-reverse bg-black relative z-10 ">
         <Link
           to="new"
-          className="btn bg-slate-400 text-black  font-semibold p-2 rounded-md btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"
+          className="btn bg-gray-700 text-white m-5  font-semibold p-2 rounded-md btn-xs sm:btn-sm md:btn-md md:m-7 lg:btn-lg xl:btn-xl"
         >
           + New Artist
         </Link>

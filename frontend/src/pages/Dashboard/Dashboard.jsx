@@ -16,9 +16,9 @@ export const Dashboard = () => {
     });
   }, [token, profile]);
   return (
-    <div className="bg-slate-100">
+    <div className="">
       <ProfileNav />
-      <main className="min-h-screen">
+      <main className="">
         {error && <p>{error}</p>}
         {user && <p>{user.email}</p>}
         <Outlet />
