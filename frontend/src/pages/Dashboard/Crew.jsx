@@ -42,7 +42,7 @@ export const Crew = () => {
       <div className="flex flex-row-reverse bg-black relative z-10 ">
         <Link
           to="new"
-          className="btn bg-gray-700 text-white m-5  font-semibold p-2 rounded-md btn-xs sm:btn-sm md:btn-md md:m-7 lg:btn-lg xl:btn-xl"
+          className="btn bg-gray-700 text-white m-5  font-semibold font-serif p-2 rounded-md btn-xs sm:btn-sm md:btn-md md:m-7 lg:btn-lg xl:btn-xl"
         >
           + New Artist
         </Link>

@@ -54,44 +54,66 @@ export const ArtistProfile = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto p-8">
-      <h2 className="text-3xl font-bold mb-8"> Profile</h2>
+    <div className="relative min-h-screen bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="absolute inset-0 bg-black/80"></div>
 
-      <div className="space-y-6 rounded-xl bg-slate-200 p-6">
-        <div>
-          <h3 className="text-sm font-semibold text-gray-500">Nombre</h3>
-          <p className="text-lg">{artist.name}</p>
+      <section className=" relative z-10 max-w-3xl mx-auto p-8 text-center lg:pb-20">
+        <h2 className="font-bold text-center text-gray-300 text-6xl mb-8 pt-6 pb-8">
+          PROFILE
+        </h2>
+
+        <div className="space-y-6 rounded-xl bg-gray-700 p-6 text-left">
+          <div>
+            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+              Nombre:
+            </h3>
+            <p className="text-base text-white font-serif">{artist.name}</p>
+          </div>
+
+          <div>
+            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+              Apellidos:
+            </h3>
+            <p className="text-base text-white font-serif">{artist.lastName}</p>
+          </div>
+
+          <div>
+            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+              DNI / NIE / Pasaporte:
+            </h3>
+            <p className="text-base text-white font-sans">{artist.persId}</p>
+          </div>
+
+          <div>
+            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+              Teléfono:
+            </h3>
+            <p className="text-base text-white font-sans">{artist.phoneNum}</p>
+          </div>
+
+          <div>
+            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+              Nº Registro Sanitario:
+            </h3>
+            <p className="text-base text-white font-sans">{artist.SanNum}</p>
+          </div>
         </div>
 
-        <div>
-          <h3 className="text-sm font-semibold text-gray-500">Apellidos</h3>
-          <p className="text-lg">{artist.lastName}</p>
+        <div className="m-5 text-white flex flex-row items-center justify-center gap-24">
+          <Link
+            to={`/profile/crew/${artistId}/edit`}
+            className="bg-gray-700 text-white mt-9 px-5 py-2 rounded-md"
+          >
+            Edit
+          </Link>
+          <button
+            onClick={onDelete}
+            className="bg-red-800 mt-9 px-5 py-2 rounded-md"
+          >
+            Delete
+          </button>
         </div>
-
-        <div>
-          <h3 className="text-sm font-semibold text-gray-500">
-            DNI / NIE / Pasaporte
-          </h3>
-          <p className="text-lg">{artist.persId}</p>
-        </div>
-
-        <div>
-          <h3 className="text-sm font-semibold text-gray-500">Teléfono</h3>
-          <p className="text-lg">{artist.phoneNum}</p>
-        </div>
-
-        <div>
-          <h3 className="text-sm font-semibold text-gray-500">
-            Nº Registro Sanitario
-          </h3>
-          <p className="text-lg">{artist.SanNum}</p>
-        </div>
-      </div>
-
-      <div>
-        <Link to={`/profile/crew/${artistId}/edit`}>Edit</Link>
-        <button onClick={onDelete}>Delete</button>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
