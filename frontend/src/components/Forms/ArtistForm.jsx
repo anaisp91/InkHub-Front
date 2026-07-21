@@ -9,22 +9,22 @@ export const ArtistForm = ({
   withEmail,
 }) => {
   return (
-    <div className="min-h-screen p-5 bg-slate-900 text-slate-100">
-      <div className="mx-auto max-w-4xl">
-        <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-slate-100">
+    <div>
+      <div>
+        <h2 className="font-bold text-center text-gray-300 text-4xl pt-10 ">
           {title}
         </h2>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mx-10">
         <form
           onSubmit={onSubmit}
-          className="w-full max-w-3xl mt-10 p-10 bg-slate-600"
+          className="w-full max-w-3xl mt-10 p-10 bg-gray-700 text-white font-serif"
         >
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
                 htmlFor="name"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Name
               </label>
@@ -34,7 +34,7 @@ export const ArtistForm = ({
                 id="name"
                 name="name"
                 value={form.name}
-                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs font-sans"
                 required
               />
             </div>
@@ -42,7 +42,7 @@ export const ArtistForm = ({
             <div>
               <label
                 htmlFor="lastName"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Last name
               </label>
@@ -52,7 +52,7 @@ export const ArtistForm = ({
                 id="lastName"
                 name="lastName"
                 value={form.lastName}
-                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs font-sans"
                 required
               />
             </div>
@@ -60,7 +60,7 @@ export const ArtistForm = ({
             <div>
               <label
                 htmlFor="persId"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Personal Id
               </label>
@@ -70,7 +70,7 @@ export const ArtistForm = ({
                 id="persId"
                 name="persId"
                 value={form.persId}
-                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs font-sans"
                 required
               />
             </div>
@@ -78,7 +78,7 @@ export const ArtistForm = ({
             <div>
               <label
                 htmlFor="phoneNum"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Phone number
               </label>
@@ -88,7 +88,7 @@ export const ArtistForm = ({
                 id="phoneNum"
                 name="phoneNum"
                 value={form.phoneNum}
-                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs font-sans"
                 required
               />
             </div>
@@ -96,7 +96,7 @@ export const ArtistForm = ({
             <div>
               <label
                 htmlFor="SanNum"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Sanitary Number
               </label>
@@ -106,7 +106,7 @@ export const ArtistForm = ({
                 id="SanNum"
                 name="SanNum"
                 value={form.SanNum}
-                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs font-sans"
                 required
               />
             </div>
@@ -115,7 +115,7 @@ export const ArtistForm = ({
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Email address
               </label>
@@ -125,7 +125,7 @@ export const ArtistForm = ({
                 id="email"
                 name="email"
                 value={form.email}
-                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+                className="bg-slate-300  rounded-md text-heading text-sm text-slate-900 rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs font-sans"
                 required
               />
             </div>
@@ -135,7 +135,7 @@ export const ArtistForm = ({
             <div className="mb-6">
               <label
                 htmlFor="password"
-                className="block mb-2.5 text-sm font-medium text-heading"
+                className="block mb-2 text-[1rem] font-medium text-heading"
               >
                 Password
               </label>
@@ -153,13 +153,15 @@ export const ArtistForm = ({
 
           {error && <p>{error}</p>}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="text-slate-900 bg-slate-400 box-border rounded-md border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-6 py-2.5 focus:outline-none "
-          >
-            {loading ? "Adding Data" : "Save"}
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              disabled={loading}
+              className="text-slate-900 bg-slate-400 box-border rounded-md border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[1rem] px-5 py-2 focus:outline-none "
+            >
+              {loading ? "Añadiendo Artista" : "Save"}
+            </button>
+          </div>
         </form>
       </div>
     </div>

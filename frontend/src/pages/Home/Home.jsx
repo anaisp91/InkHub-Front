@@ -1,6 +1,6 @@
 export const Home = () => {
   return (
-    <div className="relative h-auto bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="relative h-auto bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat pb-20">
       <div className="absolute inset-0 bg-black/80"></div>
       <div className="relative z-10">
         <img

@@ -7,7 +7,7 @@ export const Card = ({ artist }) => {
                    duration-200 hover:-translate-y-1"
       >
         <div className="mt-8">
-          <img src={artist.avatar ?? "/images/avatar.jpg"} className="" />
+          <img src={artist.avatar ?? "/images/avatar.jpg"} />
           <p className="mt-2 text-white text-xl font-serif">{artist.name}</p>
         </div>
       </div>

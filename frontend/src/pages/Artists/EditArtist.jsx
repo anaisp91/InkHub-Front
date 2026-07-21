@@ -72,7 +72,7 @@ export const EditArtist = () => {
 
       await ArtistService.updateArtist(artistId, payload, token);
 
-      navigate(`/profile/crew/${artistId}`);
+      navigate(`/profile/crew`);
     } catch (err) {
       setError(err.message || "Error en la edicion");
     } finally {
@@ -81,21 +81,25 @@ export const EditArtist = () => {
   };
 
   return (
-    <div>
-      {form ? (
-        <ArtistForm
-          onSubmit={onSubmit}
-          onChange={onChange}
-          form={form}
-          title={"Edit Artist"}
-          loading={loading}
-          error={error}
-          withPassword={false}
-          withEmail={false}
-        />
-      ) : (
-        "Cargando"
-      )}
+    <div className="relative min-h-screen bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat pb-20 ">
+      <div className="absolute inset-0 bg-black/80"></div>
+
+      <div className="relative z-10">
+        {form ? (
+          <ArtistForm
+            onSubmit={onSubmit}
+            onChange={onChange}
+            form={form}
+            title={"Edit Artist"}
+            loading={loading}
+            error={error}
+            withPassword={false}
+            withEmail={false}
+          />
+        ) : (
+          "Cargando"
+        )}
+      </div>
     </div>
   );
 };

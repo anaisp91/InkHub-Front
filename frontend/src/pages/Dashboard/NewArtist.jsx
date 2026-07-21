@@ -84,15 +84,20 @@ export const NewArtist = () => {
     }
   };
   return (
-    <ArtistForm
-      onSubmit={onSubmit}
-      onChange={onChange}
-      form={form}
-      loading={loading}
-      title={"New Artist"}
-      withPassword={true}
-      withEmail={true}
-      error={error}
-    />
+    <div className="relative min-h-screen bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat pb-20 ">
+      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="relative z-10">
+        <ArtistForm
+          onSubmit={onSubmit}
+          onChange={onChange}
+          form={form}
+          loading={loading}
+          title={"New Artist"}
+          withPassword={true}
+          withEmail={true}
+          error={error}
+        />
+      </div>
+    </div>
   );
 };

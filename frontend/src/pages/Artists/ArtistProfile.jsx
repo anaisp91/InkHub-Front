@@ -64,35 +64,35 @@ export const ArtistProfile = () => {
 
         <div className="space-y-6 rounded-xl bg-gray-700 p-6 text-left">
           <div>
-            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+            <h3 className="text-[1rem] font-semibold text-slate-400 font-serif p-1">
               Nombre:
             </h3>
-            <p className="text-base text-white font-serif">{artist.name}</p>
+            <p className="text-base text-white font-sans">{artist.name}</p>
           </div>
 
           <div>
-            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+            <h3 className="text-[1rem] font-semibold text-slate-400 font-serif p-1">
               Apellidos:
             </h3>
-            <p className="text-base text-white font-serif">{artist.lastName}</p>
+            <p className="text-base text-white font-sans">{artist.lastName}</p>
           </div>
 
           <div>
-            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+            <h3 className="text-[1rem] font-semibold text-slate-400 font-serif p-1">
               DNI / NIE / Pasaporte:
             </h3>
             <p className="text-base text-white font-sans">{artist.persId}</p>
           </div>
 
           <div>
-            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+            <h3 className="text-[1rem] font-semibold text-slate-400 font-serif p-1">
               Teléfono:
             </h3>
             <p className="text-base text-white font-sans">{artist.phoneNum}</p>
           </div>
 
           <div>
-            <h3 className="text-[1rem] font-semibold text-slate-400 p-1">
+            <h3 className="text-[1rem] font-semibold text-slate-400 font-serif p-1">
               Nº Registro Sanitario:
             </h3>
             <p className="text-base text-white font-sans">{artist.SanNum}</p>
