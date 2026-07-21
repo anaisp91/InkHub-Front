@@ -7,3 +7,4 @@ export * from "./Artists/ArtistProfile";
 export * from "./Artists/EditArtist";
 export * from "./Dashboard/Crew";
 export * from "./Dashboard/NewArtist";
+export * from "./Clients/NewClient";

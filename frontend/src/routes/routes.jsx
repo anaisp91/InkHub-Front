@@ -9,6 +9,7 @@ import {
   Crew,
   NewArtist,
   EditArtist,
+  NewClient,
 } from "../pages";
 import { ProtectedRoutes } from "../components/Auth/ProtectedRoutes";
 import App from "../App";
@@ -47,6 +48,7 @@ export const router = createBrowserRouter([
                   { path: "new", element: <NewArtist /> },
                   { path: ":artistId", element: <ArtistProfile /> },
                   { path: ":artistId/edit", element: <EditArtist /> },
+                  { path: ":artistId/new-client", element: <NewClient /> },
                 ],
               },
             ],

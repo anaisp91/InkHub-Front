@@ -39,12 +39,12 @@ export const Crew = () => {
   return (
     <div className="relative min-h-screen bg-[url('/images/logos/foto-fondo.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="absolute inset-0 bg-black/80"></div>
-      <div className="flex flex-row-reverse bg-black relative z-10 ">
+      <div className="flex flex-row-reverse relative  ">
         <Link
           to="new"
           className="btn bg-gray-700 text-white m-5  font-semibold font-serif p-2 rounded-md btn-xs sm:btn-sm md:btn-md md:m-7 lg:btn-lg xl:btn-xl"
         >
-          + New Artist
+          New Artist
         </Link>
       </div>
 

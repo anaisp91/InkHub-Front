@@ -15,7 +15,7 @@ export const Home = () => {
                   md:m-12 md:p-3"
         >
           <p
-            className="font-normal font-sans text-white text-[1rem] leading-6 text-center pt-8 
+            className="font-normal font-serif text-white text-[1rem] leading-6 text-center pt-8 px-4
                       md:text-[1.5rem]  
                       lg:text-[1.3rem] "
           >
@@ -30,7 +30,7 @@ export const Home = () => {
             Menos gestion más tiempo para crear
           </p>
           <p
-            className="text-white font-sans font-normal text-center mb-7 
+            className="text-white font-serif font-normal text-center mb-7 px-4
                       md:text-[1.5rem]
                       lg:text-[1.3rem]"
           >
@@ -45,7 +45,7 @@ export const Home = () => {
             ¿Que es InkHub?
           </p>
           <p
-            className="text-white font-normal font-sans text-center text-[1rem] mb-7 
+            className="text-white font-normal font-serif text-center text-[1rem] mb-7 px-4
                     md:text-[1.5rem]
                     lg:text-[1.3rem] lg:p-4"
           >
