@@ -22,7 +22,7 @@ export const ArtistProfile = () => {
         setError(null);
 
         const data = await ArtistService.getArtistById(artistId, token);
-        console.log("DATA ARTIST", data);
+
         setArtist(data);
       } catch (err) {
         setError(err?.message || "Error ar cargar al artista");

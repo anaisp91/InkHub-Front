@@ -27,7 +27,6 @@ export const Login = () => {
       setOk("Login correcto");
       navigate("/profile", { replace: true });
     } catch (err) {
-      console.error(err);
       setError(err.message || "Error en el login");
     } finally {
       setLoading(false);

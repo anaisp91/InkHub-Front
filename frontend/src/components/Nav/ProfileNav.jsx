@@ -40,7 +40,7 @@ export const ProfileNav = () => {
                 Consents
               </NavLink>
               <button
-                className="text-gray-800 bg-indigo-100 hover:bg-indigo-200 inline-flex items-center justify-center border border-transparent text-sm font-medium rounded-md shadow-sm p-3 "
+                className="text-gray-800 bg-indigo-100 hover:bg-indigo-200 inline-flex items-center justify-center border border-transparent text-sm font-medium rounded-md shadow-sm p-2 "
                 onClick={logOut}
               >
                 LogOut

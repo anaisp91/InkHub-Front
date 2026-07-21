@@ -22,14 +22,8 @@ export const http = async (path, { method = "GET", body, token, headers }) => {
   });
 
   const data = await parse(res);
-  // if (!res.ok) {
-  //   const message = data && (data.err || data.message || `Error ${res.status}`);
-  //   throw new Error(message);
-  // }
 
   if (!res.ok) {
-    console.log("STATUS:", res.status);
-    console.log("DATA ERROR:", data);
     throw new Error(data?.error || data?.message || JSON.stringify(data));
   }
   return data;
