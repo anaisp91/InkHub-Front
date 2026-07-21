@@ -18,7 +18,7 @@ export const ArtistForm = ({
       <div className="flex justify-center mx-10">
         <form
           onSubmit={onSubmit}
-          className="w-full max-w-3xl mt-10 p-10 bg-gray-700 text-white font-serif"
+          className="w-full max-w-3xl mt-10 p-10 bg-gray-700/60 text-white font-serif"
         >
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>

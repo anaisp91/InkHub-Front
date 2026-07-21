@@ -3,7 +3,7 @@ export const Card = ({ artist }) => {
   return (
     <Link to={artist._id}>
       <div
-        className="rounded-sm bg-gray-700 p-3 m-8 text-center flex flex-col gap-2 transition-all
+        className="rounded-sm bg-gray-700/70 p-3 m-8 text-center flex flex-col gap-2 transition-all
                    duration-200 hover:-translate-y-1 w-[300px] lg:w-[270px] "
       >
         <div className="mt-4">
