@@ -10,7 +10,7 @@ export const ProfileNav = () => {
         <div className="relative flex h-16 justify-between">
           <div className="flex flex-1 items-stretch justify-start">
             <img
-              className="block h-auto w-auto py-2"
+              className="block h-16 w-auto py-2"
               src="/images/logos/InkHub-logo-blanco.png"
               alt="InkHub"
             />
